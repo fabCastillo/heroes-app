@@ -13,7 +13,7 @@ import { HeroeTarjetaComponent } from './components/heroe-tarjeta.component';
 
 import { HeroesRoutingModule } from './heroes-routing.module';
 
-
+import { ImagenPipe } from './pipes/imagen.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { HeroesRoutingModule } from './heroes-routing.module';
     HeroeComponent,
     HeroeTarjetaComponent,
     HomeComponent,
-    ListadoComponent
+    ListadoComponent,
+    ImagenPipe
   ],
   imports: [
     CommonModule,
