@@ -68,10 +68,20 @@ export class AgregarComponent implements OnInit {
     
       default:
         this.heroesService.actualizarHeroe( this.heroe )
-          .subscribe( resp => console.log('Actualizando', resp) )
+          .subscribe( heroe => {
+            console.log('Actualizando', heroe);
+            this.heroe = heroe;
+          } )
         break;
     }
     
+  }
+
+  public borrar(): void {
+    this.heroesService.borrarHeroe( this.heroe.id! )
+      .subscribe( resp => {
+        this.route.navigate(['/heroes'])
+      })
   }
 
 }
