@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { ConfirmarComponent } from '../../components/confirmar/confirmar.component';
 import { Heroe, Publisher } from '../../interfaces/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -40,7 +42,8 @@ export class AgregarComponent implements OnInit {
     private heroesService: HeroesService,
     private activatedRoute: ActivatedRoute,
     private route: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -85,10 +88,11 @@ export class AgregarComponent implements OnInit {
   }
 
   public borrar(): void {
-    this.heroesService.borrarHeroe( this.heroe.id! )
-      .subscribe( resp => {
-        this.route.navigate(['/heroes'])
-      })
+    this.dialog.open(ConfirmarComponent)
+    // this.heroesService.borrarHeroe( this.heroe.id! )
+    //   .subscribe( resp => {
+    //     this.route.navigate(['/heroes'])
+    //   })
   }
 
 }
