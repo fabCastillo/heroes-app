@@ -1,4 +1,7 @@
-<h1> Nuevo Heroe </h1>
+<h1>
+    {{ (!heroe.id) ? 'Nuevo' : 'Editar' }}
+    Heroe 
+</h1>
 <mat-divider></mat-divider>
 <br>
 
@@ -60,7 +63,7 @@
         <div fxLayout>
             <button mat-raised-button color="primary" (click)="guardar()">
                 <mat-icon>save</mat-icon>
-                Guardar
+                {{ (!heroe.id) ? 'Crear' : 'Actualizar' }}
             </button>
 
             <span class="spacer"></span>
