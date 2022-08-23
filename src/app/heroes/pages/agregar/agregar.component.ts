@@ -88,11 +88,19 @@ export class AgregarComponent implements OnInit {
   }
 
   public borrar(): void {
-    this.dialog.open(ConfirmarComponent)
-    // this.heroesService.borrarHeroe( this.heroe.id! )
-    //   .subscribe( resp => {
-    //     this.route.navigate(['/heroes'])
-    //   })
+    const dialog = this.dialog.open(ConfirmarComponent, {
+      data: this.heroe
+    })
+
+    dialog.afterClosed().subscribe( result => {
+       if ( result ) {
+        this.heroesService.borrarHeroe( this.heroe.id! )
+          .subscribe( resp => {
+          this.route.navigate(['/heroes'])
+        });
+       }
+    })
+    
   }
 
 }
