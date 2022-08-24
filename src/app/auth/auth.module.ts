@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AuthRoutingModule } from './auth-routing.module';
     RegistroComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     AuthRoutingModule
